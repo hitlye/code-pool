@@ -44,6 +44,8 @@ class Solution {
 //
 //  phead + ptail < target => phead++
 //                > target => ptail--
+// Time: O(n)
+// Space: O(1)
 class Solution2 {
  public:
   vector<int> twoSum(const vector<int>& nums, int target) {
@@ -51,9 +53,10 @@ class Solution2 {
     int ptail = nums.size() - 1;
 
     while (phead < ptail) {
-      if (nums[phead] + nums[ptail] < target)
+      const int sum = nums[phead] + nums[ptail];
+      if (sum < target)
         ++phead;
-      else if (nums[phead] + nums[ptail] > target)
+      else if (sum > target)
         --ptail;
       else
         return {phead, ptail};
