@@ -18,7 +18,7 @@ using std::vector;
 // Space: O(n)
 class Solution {
  public:
-  vector<vector<string>> groupAnagrams(vector<string>& strs) {
+  vector<vector<string>> groupAnagrams(const vector<string>& strs) {
     unordered_map<string, vector<string>> groups;
     size_t i = 0;
     for (auto s : strs) {
@@ -35,8 +35,8 @@ class Solution {
   }
 };
 
-// Core: Map each lowercase char to a primer number, then use the product of all chars
-//       in str to represented its hashcode.
+// Core: Map each lowercase char to a primer number, then use the product
+//       of all chars in str to represented its hashcode.
 //
 // Thoery basis: If a, b and c are three unique primers, then a^m * b^n != c
 //
@@ -46,7 +46,7 @@ class Solution {
 // Limitation(Strong): Max str is (INT_MAX / 103) of z
 class Solution2 {
  public:
-  vector<vector<string>> groupAnagrams(vector<string>& strs) {
+  vector<vector<string>> groupAnagrams(const vector<string>& strs) {
     unordered_map<size_t, vector<string>> groups;
     vector<int> hash_table = {2, 3, 5, 7, 11, 13, 17,
                               19, 23, 29, 31, 41, 43,
@@ -77,7 +77,7 @@ class Solution2 {
 
 class Solution3 {
  public:
-  vector<vector<string>> groupAnagrams(vector<string>& strs) {
+  vector<vector<string>> groupAnagrams(const vector<string>& strs) {
     unordered_map<string, vector<string>> groups;
     for (const auto &s : strs) {
       string hash_val;
@@ -86,7 +86,8 @@ class Solution3 {
         ++counter[c - 'a'];
       }
       for (size_t i = 0; i < counter.size(); ++i) {
-        if (counter[i]) hash_val += (to_string(i) + "_" + to_string(counter[i]));
+        if (counter[i])
+          hash_val += (to_string(i) + "_" + to_string(counter[i]));
       }
       groups[hash_val].emplace_back(s);
     }

@@ -25,7 +25,7 @@ using std::max;
 // Then set startp = previous + 1
 //
 // Time: O(n)
-// Space: O(1)
+// Space: O(n)
 class Solution {
  public:
   int lengthOfLongestSubstring(const string &s) {
