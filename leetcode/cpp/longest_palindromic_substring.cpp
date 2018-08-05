@@ -7,12 +7,14 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<cmath>
 
 // Solution dependencies
 using std::ostream_iterator;
 using std::string;
 using std::stringstream;
 using std::vector;
+using std::min;
 
 // Core: Manacher's algorithm to avoid duplicated comparations.
 //
@@ -30,11 +32,14 @@ using std::vector;
 //                 substring which takes i as the center.
 //                 (m[i] = i - l = r - i)
 //  Logics:
-//      1. since k in i -> i + r via inside i's max pali radius
+//      1. If k in i -> i + r via inside i's max pali radius
 //         then
 //             known_len_of_k_pali = min(m[2 * i - k], r - k)
 //                                             ↑
 //             (The symmetric postion(j) of k in the left of i)
+//         else
+//             known_len_of_k_pali = m[k] -- it's 0
+//             (Can not use previous calculated results)
 //      2. continue to process check palindromic rule behind
 //              k + known_len_of_k_pali
 // Time: O(n)
