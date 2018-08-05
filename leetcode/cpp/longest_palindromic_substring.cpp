@@ -55,20 +55,20 @@ class Solution {
     for (int k = 1; k < str_len; ++k) {
       // 1. get known_len_of_k_pali
       int known_radius = cur_center + cur_radius > k ?
-                         min(m[2 * cur_center - k], cur_center + cur_radius - k) : m[k];
+                         min(m[2 * cur_center - k], cur_center + cur_radius - k) : m[k]; // NOLINT(*)
       int left = k - known_radius;
       int right = k + known_radius;
 
       // 2. continue check positon behind known_len_of_k_pali
-      while (right + 1 < str_len && left - 1 >= 0 && new_str[left - 1] == new_str[right + 1]) {
+      while (right + 1 < str_len && left - 1 >= 0
+             && new_str[left - 1] == new_str[right + 1]) {
         --left;
         ++right;
       }
 
       // change center_index if k goes out of cur_index + cur_radius
       int k_radius = right - k;
-      if (right > cur_center + cur_radius)
-      {
+      if (right > cur_center + cur_radius) {
         cur_center = k;
         cur_radius = k_radius;
       }
@@ -125,7 +125,8 @@ class Solution2 {
       while (right + 1 < str_len && s[left] == s[right + 1]) ++right;
       i = right + 1;
       // expanding
-      while (right + 1 < str_len && left - 1 >= 0 && s[left - 1] == s[right + 1]) {
+      while (right + 1 < str_len && left - 1 >= 0
+             && s[left - 1] == s[right + 1]) {
         --left;
         ++right;
       }
