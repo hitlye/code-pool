@@ -36,4 +36,7 @@
 ######################Start: Java Programming Language##########################
 # Java Code Style Check tool
 checkstyle.jar
+
+# IntelliJ IDEA
+leetcode/java/.idea
 #######################End: Java Programming Language###########################
