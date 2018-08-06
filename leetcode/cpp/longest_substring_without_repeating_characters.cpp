@@ -42,6 +42,7 @@ class Solution {
       visited_chars[s[i]] = i;
     }
 
+    // Above loop has two termination scenarios
     return max(max_len, s.size() - startp);
   }
 };
