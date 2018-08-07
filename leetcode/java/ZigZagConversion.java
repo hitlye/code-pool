@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class ZigZagConversion {
+class ZigZagConversion {
   public String convert(String s, int numRows) {
     if (numRows == 1 || s.isEmpty()) {
       return s;
