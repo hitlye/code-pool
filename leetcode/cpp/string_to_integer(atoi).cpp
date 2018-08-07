@@ -19,40 +19,40 @@ using std::string;
 // Time: O(valid digits)
 // Space: O(1)
 class Solution {
-public:
-    int myAtoi(string str) {
-      int32_t acc = 0, neg = 0, any = 0;
+ public:
+  int myAtoi(string str) {
+    int32_t acc = 0, neg = 0, any = 0;
 
-      // leading spaces
-      size_t i = 0;
-      while (i < str.size() && str[i] == ' ')
-        ++i;
-      if (i >= str.size()) return 0;
+    // leading spaces
+    size_t i = 0;
+    while (i < str.size() && str[i] == ' ')
+      ++i;
+    if (i >= str.size()) return 0;
 
-      // sign
-      if (str[i] == '-') {
-        neg = 1;
-        ++i;
-      } else if (str[i] == '+') {
-        ++i;
-      }
-
-      // conversion and overflow check
-      // cppcheck-suppress *
-      uint32_t cutoff = neg ? static_cast<uint32_t>INT32_MIN : INT32_MAX;
-      int32_t cutlim = cutoff % 10;
-      cutoff /= 10;
-      for (acc = 0; isdigit(str[i]); ++i) {
-        int32_t d = str[i] - '0';
-        if (acc > cutoff || (acc == cutoff && d > cutlim)) {
-          any = -1;
-          break;
-        }
-        acc = acc * 10 + d;
-      }
-      if (any < 0) return neg ? INT32_MIN : INT32_MAX;
-      return neg ? -acc : acc;
+    // sign
+    if (str[i] == '-') {
+      neg = 1;
+      ++i;
+    } else if (str[i] == '+') {
+      ++i;
     }
+
+    // conversion and overflow check
+    // cppcheck-suppress *
+    uint32_t cutoff = neg ? static_cast<uint32_t>INT32_MIN : INT32_MAX;
+    int32_t cutlim = cutoff % 10;
+    cutoff /= 10;
+    for (acc = 0; isdigit(str[i]); ++i) {
+      int32_t d = str[i] - '0';
+      if (acc > cutoff || (acc == cutoff && d > cutlim)) {
+        any = -1;
+        break;
+      }
+      acc = acc * 10 + d;
+    }
+    if (any < 0) return neg ? INT32_MIN : INT32_MAX;
+    return neg ? -acc : acc;
+  }
 };
 
 // Core:(C version)
