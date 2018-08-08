@@ -1,9 +1,21 @@
 class Sqrt {
   public int mySqrt(int x) {
-    int sqrt = 0;
-    while (sqrt * sqrt <= x && sqrt * sqrt >= 0) {
-      sqrt++;
+    if (x < 2) {
+      return x;
     }
-    return sqrt - 1;
+
+    int left = 1;
+    int right = x / 2;
+    while (left <= right) {
+      int mid = left + (right - left) / 2;
+      if (mid == x / mid) {
+        return mid;
+      } else if (mid > x / mid) {
+        right = mid - 1;
+      } else {
+        left = mid + 1;
+      }
+    }
+    return left < x / left ? left : right;
   }
 }
