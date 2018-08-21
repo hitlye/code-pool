@@ -25,9 +25,9 @@ using std::max;
 class Solution {
  public:
   int maxArea(const vector<int>& height) {
-    if (height.empty()) return 0;
+    if (height.size() < 2) return 0;
 
-    int max_area = height[0];
+    int max_area = 0;
     int lo = 0, hi = height.size() - 1;
     while (lo < hi) {
       int h = min(height[lo], height[hi]);
