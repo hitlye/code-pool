@@ -7,6 +7,7 @@
 #include<algorithm>
 #include<functional>
 #include<string>
+#include<queue>
 #include<vector>
 
 // Solution dependencies
@@ -17,6 +18,7 @@ using std::max;
 using std::sort;
 using std::string;
 using std::vector;
+using std::priority_queue;
 
 // Core:
 // Greedy Arrangement
@@ -25,7 +27,7 @@ using std::vector;
 // Space: O(1)
 class Solution {
  public:
-  int leastInterval(vector<char>& tasks, int n) {
+  int leastInterval(const vector<char>& tasks, int n) {
     int counter[26] = {0};
     for (const auto& t : tasks)  ++counter[t - 'A'];
 
@@ -45,7 +47,7 @@ class Solution {
 // Space: O(n)
 class Solution2 {
  public:
-  int leastInterval(vector<char>& tasks, int n) {
+  int leastInterval(const vector<char>& tasks, int n) {
     int counter[26] = {0};
     for (const auto& t : tasks) ++counter[t - 'A'];
 
@@ -66,7 +68,7 @@ class Solution2 {
           ++time;
         }
       }
-      for (auto & f: selected_frequency) {
+      for (auto &f : selected_frequency) {
         if (--f != 0) task_frequency_queue.push(f);
       }
       total_time += (task_frequency_queue.empty() ? time : n + 1);
