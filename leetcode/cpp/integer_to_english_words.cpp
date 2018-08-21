@@ -39,6 +39,7 @@ class Solution {
       ++i;
       num /= 1000;
     }
+    // TODO(hitlye): check if we could use erase here because of only one space
     string trimed_words = words.substr(0, words.find_last_not_of(' ') + 1);
     return trimed_words;
   }
