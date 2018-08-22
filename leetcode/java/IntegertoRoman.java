@@ -14,7 +14,7 @@ class IntegertoRoman {
         num = addRoman(sb, num, 10, "X");
       } else if (num >= 5) {
         num = addRoman(sb, num, 5, "V");
-      } else if (num >= 1) {
+      } else {
         num = addRoman(sb, num, 1, "I");
       }
     }
