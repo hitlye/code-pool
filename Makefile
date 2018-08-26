@@ -1,5 +1,4 @@
 # Code Style Check
-CHECKSTYLE_VERSION=8.11
 
 check: check-cpp check-java
 
@@ -10,7 +9,7 @@ check-cpp:
 
 check-java:
 	@echo "====================Java Checking==================="
-	java -jar checkstyle.jar -c /google_checks.xml  leetcode/java/
+	java -jar checkstyle.jar -c /google_java_style_revised.xml  leetcode/java/
 
 install-c++:
 	pip install cpplint
@@ -18,4 +17,4 @@ install-c++:
 
 install-java:
 	rm -f checkstyle.jar
-	wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-${CHECKSTYLE_VERSION}/checkstyle-${CHECKSTYLE_VERSION}-all.jar -O checkstyle.jar
+	wget https://s3.amazonaws.com/cmucc-public/utils/checkstyle/checkstyle.jar
