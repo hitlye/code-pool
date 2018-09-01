@@ -20,8 +20,8 @@ struct Interval {
 };
 
 class Solution {
-public:
-  vector<Interval> merge(vector<Interval>& intervals) {
+ public:
+  vector<Interval> merge(vector<Interval>& intervals) { // NOLINT(*)
     if (intervals.empty()) return vector<Interval>();
 
     // inplace sort by start
