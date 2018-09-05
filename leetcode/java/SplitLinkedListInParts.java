@@ -21,8 +21,9 @@ class SplitLinkedListInParts {
     }
 
     for (i = 0; i < k; i++) {
-      if (partLens[i] == 0)
+      if (partLens[i] == 0) {
         break;
+      }
 
       parts[i] = root;
       int idx = 0;
