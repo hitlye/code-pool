@@ -11,8 +11,8 @@ class Solution {
 
     int l = 0, r = s.size() - 1;
     while (l < r) {
-      while (l < r && vowels_table.find(tolower(s[l])) == vowels_table.end()) ++l;
-      while (l < r && vowels_table.find(tolower(s[r])) == vowels_table.end()) --r;
+      while (l < r && vowels_table.find(tolower(s[l])) == vowels_table.end()) ++l; // NOLINT(*)
+      while (l < r && vowels_table.find(tolower(s[r])) == vowels_table.end()) --r; // NOLINT(*)
       // exchange these two vowels
       swap(s[l], s[r]);
       ++l;
