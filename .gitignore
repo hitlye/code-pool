@@ -42,3 +42,9 @@ checkstyle.jar
 # IntelliJ IDEA
 leetcode/java/.idea
 #######################End: Java Programming Language###########################
+
+###########################Start: JSON Parser ##################################
+# Output directory
+wheels/c++/json_parser/output
+
+###########################End: JSON Parser ##################################
